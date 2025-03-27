@@ -6,7 +6,7 @@
 
     <!-- Propiedades específicas para template -->
     <PackageType>Template</PackageType>
-    <PackageVersion>1.0.1</PackageVersion>
+    <PackageVersion>1.1.0</PackageVersion>
     <PackageId>BrayanHenao.CleanArchitecture.Template</PackageId>
     <Title>Clean Architecture Template</Title>
     <Authors>Brayan Henao</Authors>
