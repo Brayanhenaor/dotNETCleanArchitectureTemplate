@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <!-- Propiedades específicas para template -->
+    <PackageType>Template</PackageType>
+    <PackageVersion>1.0.0</PackageVersion>
+    <PackageId>BrayanHenao.CleanArchitecture.Template</PackageId>
+    <Title>Clean Architecture Template</Title>
+    <Authors>Brayan Henao</Authors>
+    <Description>Template for Clean Architecture</Description>
+    <PackageTags>dotnet-new;template</PackageTags>
+
+    <!-- Configuraciones importantes para templates -->
+    <IsPackable>true</IsPackable>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Incluir todos los archivos del template -->
+    <Content Include="..\**\*.sln;..\**\*.csproj;..\**\*.cs;..\**\*.json;..\**\*.yml"
+      Exclude="..\**/bin/**;..\**/obj/**;..\**/*.user;..\**/Properties/**;..\**/*.log">
+      <Pack>true</Pack>
+      <PackagePath>content\</PackagePath>
+    </Content>
+
+    <None Include="LICENSE" Pack="true" PackagePath="" />
+    <None Include="README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
+</Project>

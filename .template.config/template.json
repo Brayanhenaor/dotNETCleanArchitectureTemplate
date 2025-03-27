@@ -1,11 +1,29 @@
 {
-    "$schema": "http://json.schemastore.org/template",
-    "author": "Brayan Henao Raigosa",
-    "classifications": ["Clean Architecture", "Web API", "DDD", ".NET"],
-    "identity": "CleanArchitecture.Template",
-    "name": "Clean Architecture Template",
-    "shortName": "clean-arch",
-    "sourceName": "DotNetApiTemplate",
-    "preferNameDirectory": true
-  }
-  
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Brayan Henao Raigosa",
+  "classifications": ["Clean Architecture", "Web API", "DDD", ".NET"],
+  "identity": "CleanArchitecture.Template",
+  "name": "Clean Architecture Template",
+  "shortName": "clean-arch",
+  "sourceName": "DotNetApiTemplate",
+  "preferNameDirectory": true,
+  "preferReferencedPackage": true,
+  "symbols": {
+    "skipTemplate": {
+      "type": "parameter",
+      "description": "Skip Template project",
+      "dataType": "bool",
+      "defaultValue": "true"
+    }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "condition": "(skipTemplate)",
+          "exclude": [ "Template/**" ]
+        }
+      ]
+    }
+  ]
+}
