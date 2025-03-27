@@ -1,0 +1,750 @@
+2025-03-26 17:46:54.412 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-03-26 17:51:45.650 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-03-26 17:51:46.254 -05:00 [INF] Executed DbCommand (195ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [SampleDb];
+2025-03-26 17:51:46.361 -05:00 [INF] Executed DbCommand (97ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [SampleDb] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2025-03-26 17:51:46.381 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-03-26 17:51:46.385 -05:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-03-26 17:51:46.403 -05:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-03-26 17:51:46.460 -05:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-03-26 17:51:46.471 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-03-26 17:51:46.474 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-03-26 17:51:46.491 -05:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-03-26 17:51:46.500 -05:00 [INF] Applying migration '20250326224655_InitialDb'.
+2025-03-26 17:51:46.511 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Samples] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Samples] PRIMARY KEY ([Id])
+);
+2025-03-26 17:51:46.519 -05:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250326224655_InitialDb', N'9.0.3');
+2025-03-26 17:51:46.527 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-03-26 17:53:05.530 -05:00 [INF] User profile is available. Using 'C:\Users\ing01fs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-26 17:53:05.717 -05:00 [WRN] The WebRootPath was not found: C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api\wwwroot. Static files may be unavailable.
+2025-03-26 17:53:05.867 -05:00 [INF] Now listening on: https://localhost:7048
+2025-03-26 17:53:05.870 -05:00 [INF] Now listening on: http://localhost:5110
+2025-03-26 17:53:05.911 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-26 17:53:05.913 -05:00 [INF] Hosting environment: Development
+2025-03-26 17:53:05.916 -05:00 [INF] Content root path: C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api
+2025-03-26 17:53:07.046 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/ - null null
+2025-03-26 17:53:07.355 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/ - 404 0 null 323.497ms
+2025-03-26 17:53:07.372 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7048/, Response status code: 404
+2025-03-26 17:53:11.907 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar - null null
+2025-03-26 17:53:11.940 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 17:53:11.973 -05:00 [INF] Executing RedirectResult, redirecting to scalar/.
+2025-03-26 17:53:11.976 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 17:53:11.980 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar - 302 0 null 72.311ms
+2025-03-26 17:53:11.986 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/ - null null
+2025-03-26 17:53:11.997 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 17:53:12.061 -05:00 [INF] Write content with HTTP Response ContentType of text/html
+2025-03-26 17:53:12.079 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 17:53:12.092 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/ - 200 null text/html 106.0566ms
+2025-03-26 17:53:12.153 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - null null
+2025-03-26 17:53:12.154 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.js - null null
+2025-03-26 17:53:12.156 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-26 17:53:12.156 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_vs/browserLink - null null
+2025-03-26 17:53:12.165 -05:00 [INF] CORS policy execution successful.
+2025-03-26 17:53:12.166 -05:00 [INF] CORS policy execution successful.
+2025-03-26 17:53:12.177 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 17:53:12.178 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 17:53:12.262 -05:00 [INF] Sending file with download name ''.
+2025-03-26 17:53:12.262 -05:00 [INF] Sending file with download name ''.
+2025-03-26 17:53:12.262 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - 200 16491 application/javascript; charset=utf-8 105.6829ms
+2025-03-26 17:53:12.276 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 17:53:12.328 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - 200 2205 text/javascript 174.2285ms
+2025-03-26 17:53:12.361 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_vs/browserLink - 200 null text/javascript; charset=UTF-8 205.1289ms
+2025-03-26 17:53:12.409 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 17:53:12.423 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.js - 200 2811726 text/javascript 269.2942ms
+2025-03-26 17:53:12.679 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/openapi/v1.json - null null
+2025-03-26 17:53:12.692 -05:00 [INF] Executing endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 17:53:12.944 -05:00 [INF] Executed endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 17:53:12.950 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/openapi/v1.json - 200 null application/json;charset=utf-8 271.1728ms
+2025-03-26 17:53:13.477 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/favicon.ico - null null
+2025-03-26 17:53:13.495 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/favicon.ico - 404 0 null 17.2227ms
+2025-03-26 17:53:13.522 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7048/favicon.ico, Response status code: 404
+2025-03-26 17:54:10.095 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/Sample - null null
+2025-03-26 17:54:10.106 -05:00 [INF] Executing endpoint 'Api.Controllers.SampleController.GetSampleAsync (Api)'
+2025-03-26 17:54:10.136 -05:00 [INF] Route matched with {action = "GetSample", controller = "Sample"}. Executing controller action with signature System.Threading.Tasks.Task`1[Application.DTO.Response.ApiResponse`1[System.Collections.Generic.IEnumerable`1[Application.DTO.Response.SampleResponse]]] GetSampleAsync() on controller Api.Controllers.SampleController (Api).
+2025-03-26 17:54:10.713 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-03-26 17:54:11.935 -05:00 [INF] Executed DbCommand (63ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Description], [s].[Name]
+FROM [Samples] AS [s]
+2025-03-26 17:54:12.016 -05:00 [INF] Executing ObjectResult, writing value of type 'Application.DTO.Response.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Application.DTO.Response.SampleResponse, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-03-26 17:54:12.145 -05:00 [INF] Executed action Api.Controllers.SampleController.GetSampleAsync (Api) in 1999.0337ms
+2025-03-26 17:54:12.148 -05:00 [INF] Executed endpoint 'Api.Controllers.SampleController.GetSampleAsync (Api)'
+2025-03-26 17:54:12.162 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/Sample - 200 71 application/json; charset=utf-8 2067.0349ms
+2025-03-26 17:58:59.479 -05:00 [INF] User profile is available. Using 'C:\Users\ing01fs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-26 17:58:59.712 -05:00 [WRN] The WebRootPath was not found: C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api\wwwroot. Static files may be unavailable.
+2025-03-26 17:58:59.884 -05:00 [INF] Now listening on: https://localhost:7048
+2025-03-26 17:58:59.887 -05:00 [INF] Now listening on: http://localhost:5110
+2025-03-26 17:58:59.933 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-26 17:58:59.936 -05:00 [INF] Hosting environment: Development
+2025-03-26 17:58:59.938 -05:00 [INF] Content root path: C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api
+2025-03-26 17:59:01.182 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/ - null null
+2025-03-26 17:59:01.538 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/ - 404 0 null 368.2919ms
+2025-03-26 17:59:01.558 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7048/, Response status code: 404
+2025-03-26 17:59:04.814 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar - null null
+2025-03-26 17:59:04.838 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 17:59:04.854 -05:00 [INF] Executing RedirectResult, redirecting to scalar/.
+2025-03-26 17:59:04.857 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 17:59:04.861 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar - 302 0 null 47.642ms
+2025-03-26 17:59:04.868 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/ - null null
+2025-03-26 17:59:04.882 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 17:59:04.959 -05:00 [INF] Write content with HTTP Response ContentType of text/html
+2025-03-26 17:59:04.976 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 17:59:04.978 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/ - 200 null text/html 110.6025ms
+2025-03-26 17:59:05.038 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - null null
+2025-03-26 17:59:05.039 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.js - null null
+2025-03-26 17:59:05.039 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-26 17:59:05.039 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_vs/browserLink - null null
+2025-03-26 17:59:05.049 -05:00 [INF] CORS policy execution successful.
+2025-03-26 17:59:05.049 -05:00 [INF] CORS policy execution successful.
+2025-03-26 17:59:05.062 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 17:59:05.062 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 17:59:05.084 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - 200 16491 application/javascript; charset=utf-8 45.6587ms
+2025-03-26 17:59:05.092 -05:00 [INF] Setting HTTP status code 304.
+2025-03-26 17:59:05.092 -05:00 [INF] Setting HTTP status code 304.
+2025-03-26 17:59:05.098 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 17:59:05.100 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 17:59:05.107 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.js - 304 null null 68.1608ms
+2025-03-26 17:59:05.109 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - 304 null null 72.0416ms
+2025-03-26 17:59:05.149 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_vs/browserLink - 200 null text/javascript; charset=UTF-8 109.4174ms
+2025-03-26 17:59:05.485 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/openapi/v1.json - null null
+2025-03-26 17:59:05.493 -05:00 [INF] Executing endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 17:59:05.714 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/favicon.ico - null null
+2025-03-26 17:59:05.743 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/favicon.ico - 404 0 null 28.8388ms
+2025-03-26 17:59:05.752 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7048/favicon.ico, Response status code: 404
+2025-03-26 17:59:05.793 -05:00 [INF] Executed endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 17:59:05.803 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/openapi/v1.json - 200 null application/json;charset=utf-8 317.4527ms
+2025-03-26 22:40:25.792 -05:00 [INF] User profile is available. Using 'C:\Users\ing01fs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-26 22:40:26.580 -05:00 [WRN] The WebRootPath was not found: C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api\wwwroot. Static files may be unavailable.
+2025-03-26 22:40:27.176 -05:00 [INF] Now listening on: https://localhost:7048
+2025-03-26 22:40:27.293 -05:00 [INF] Now listening on: http://localhost:5110
+2025-03-26 22:40:27.442 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-26 22:40:27.699 -05:00 [INF] Hosting environment: Development
+2025-03-26 22:40:27.703 -05:00 [INF] Content root path: C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api
+2025-03-26 22:40:29.240 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/ - null null
+2025-03-26 22:40:30.154 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/ - 404 0 null 934.1902ms
+2025-03-26 22:40:30.199 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7048/, Response status code: 404
+2025-03-26 22:40:56.230 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/swagger - null null
+2025-03-26 22:40:56.247 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/swagger - 301 0 null 16.8988ms
+2025-03-26 22:40:56.255 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/swagger/index.html - null null
+2025-03-26 22:40:56.388 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/swagger/swagger-ui.css - null null
+2025-03-26 22:40:56.388 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/swagger/swagger-ui-standalone-preset.js - null null
+2025-03-26 22:40:56.388 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-26 22:40:56.395 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/swagger/index.html - 200 null text/html;charset=utf-8 140.6602ms
+2025-03-26 22:40:56.388 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/swagger/swagger-ui-bundle.js - null null
+2025-03-26 22:40:56.395 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_vs/browserLink - null null
+2025-03-26 22:40:56.468 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - 200 16491 application/javascript; charset=utf-8 80.4443ms
+2025-03-26 22:40:56.487 -05:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-03-26 22:40:56.487 -05:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-03-26 22:40:56.493 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/swagger/swagger-ui.css - 200 144929 text/css 105.8894ms
+2025-03-26 22:40:56.495 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/swagger/swagger-ui-standalone-preset.js - 200 312163 text/javascript 106.7184ms
+2025-03-26 22:40:56.508 -05:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-03-26 22:40:56.517 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/swagger/swagger-ui-bundle.js - 200 1061536 text/javascript 129.3809ms
+2025-03-26 22:40:56.564 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_vs/browserLink - 200 null text/javascript; charset=UTF-8 169.6267ms
+2025-03-26 22:40:56.740 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/swagger/v1/swagger.json - null null
+2025-03-26 22:40:56.813 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/swagger/favicon-32x32.png - null null
+2025-03-26 22:40:56.819 -05:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-03-26 22:40:56.823 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/swagger/favicon-32x32.png - 200 628 image/png 10.0119ms
+2025-03-26 22:40:56.870 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 130.5422ms
+2025-03-26 22:41:02.119 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar - null null
+2025-03-26 22:41:02.130 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:41:02.145 -05:00 [INF] Executing RedirectResult, redirecting to scalar/.
+2025-03-26 22:41:02.149 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:41:02.152 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar - 302 0 null 33.0141ms
+2025-03-26 22:41:02.157 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/ - null null
+2025-03-26 22:41:02.165 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:41:02.199 -05:00 [INF] Write content with HTTP Response ContentType of text/html
+2025-03-26 22:41:02.201 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:41:02.203 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/ - 200 null text/html 46.064ms
+2025-03-26 22:41:02.242 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - null null
+2025-03-26 22:41:02.242 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-26 22:41:02.243 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.js - null null
+2025-03-26 22:41:02.243 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_vs/browserLink - null null
+2025-03-26 22:41:02.249 -05:00 [INF] CORS policy execution successful.
+2025-03-26 22:41:02.251 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - 200 16491 application/javascript; charset=utf-8 8.6553ms
+2025-03-26 22:41:02.256 -05:00 [INF] CORS policy execution successful.
+2025-03-26 22:41:02.263 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 22:41:02.266 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_vs/browserLink - 200 null text/javascript; charset=UTF-8 22.9422ms
+2025-03-26 22:41:02.270 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 22:41:02.276 -05:00 [INF] Setting HTTP status code 304.
+2025-03-26 22:41:02.277 -05:00 [INF] Setting HTTP status code 304.
+2025-03-26 22:41:02.278 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 22:41:02.280 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 22:41:02.282 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - 304 null null 39.6103ms
+2025-03-26 22:41:02.283 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.js - 304 null null 40.3636ms
+2025-03-26 22:41:02.483 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/openapi/v1.json - null null
+2025-03-26 22:41:02.490 -05:00 [INF] Executing endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 22:41:02.579 -05:00 [INF] Executed endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 22:41:02.585 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/openapi/v1.json - 200 null application/json;charset=utf-8 101.9995ms
+2025-03-26 22:41:03.004 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/favicon.ico - null null
+2025-03-26 22:41:03.016 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/favicon.ico - 404 0 null 12.577ms
+2025-03-26 22:41:03.027 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7048/favicon.ico, Response status code: 404
+2025-03-26 22:42:41.932 -05:00 [INF] User profile is available. Using 'C:\Users\ing01fs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-26 22:42:42.273 -05:00 [WRN] The WebRootPath was not found: C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api\wwwroot. Static files may be unavailable.
+2025-03-26 22:42:42.462 -05:00 [INF] Now listening on: https://localhost:7048
+2025-03-26 22:42:42.467 -05:00 [INF] Now listening on: http://localhost:5110
+2025-03-26 22:42:42.544 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-26 22:42:42.547 -05:00 [INF] Hosting environment: Development
+2025-03-26 22:42:42.550 -05:00 [INF] Content root path: C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api
+2025-03-26 22:42:43.426 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/ - null null
+2025-03-26 22:42:43.858 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/ - 404 0 null 450.1141ms
+2025-03-26 22:42:43.883 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7048/, Response status code: 404
+2025-03-26 22:42:45.269 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/ - null null
+2025-03-26 22:42:45.290 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:42:45.382 -05:00 [INF] Write content with HTTP Response ContentType of text/html
+2025-03-26 22:42:45.394 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:42:45.399 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/ - 200 null text/html 130.6535ms
+2025-03-26 22:42:45.446 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - null null
+2025-03-26 22:42:45.446 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.js - null null
+2025-03-26 22:42:45.458 -05:00 [INF] CORS policy execution successful.
+2025-03-26 22:42:45.446 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-26 22:42:45.446 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_vs/browserLink - null null
+2025-03-26 22:42:45.459 -05:00 [INF] CORS policy execution successful.
+2025-03-26 22:42:45.462 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 22:42:45.501 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 22:42:45.505 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - 200 16491 application/javascript; charset=utf-8 59.086ms
+2025-03-26 22:42:45.514 -05:00 [INF] Setting HTTP status code 304.
+2025-03-26 22:42:45.514 -05:00 [INF] Setting HTTP status code 304.
+2025-03-26 22:42:45.520 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 22:42:45.523 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 22:42:45.527 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - 304 null null 81.038ms
+2025-03-26 22:42:45.529 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.js - 304 null null 82.8929ms
+2025-03-26 22:42:45.556 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_vs/browserLink - 200 null text/javascript; charset=UTF-8 109.656ms
+2025-03-26 22:42:45.856 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/openapi/v1.json - null null
+2025-03-26 22:42:45.864 -05:00 [INF] Executing endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 22:42:46.024 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/favicon.ico - null null
+2025-03-26 22:42:46.035 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/favicon.ico - 404 0 null 10.7991ms
+2025-03-26 22:42:46.048 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7048/favicon.ico, Response status code: 404
+2025-03-26 22:42:46.098 -05:00 [INF] Executed endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 22:42:46.107 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/openapi/v1.json - 200 null application/json;charset=utf-8 251.0475ms
+2025-03-26 22:43:11.809 -05:00 [INF] User profile is available. Using 'C:\Users\ing01fs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-26 22:43:12.185 -05:00 [WRN] The WebRootPath was not found: C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api\wwwroot. Static files may be unavailable.
+2025-03-26 22:43:12.427 -05:00 [INF] Now listening on: https://localhost:7048
+2025-03-26 22:43:12.433 -05:00 [INF] Now listening on: http://localhost:5110
+2025-03-26 22:43:12.531 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-26 22:43:12.588 -05:00 [INF] Hosting environment: Development
+2025-03-26 22:43:12.611 -05:00 [INF] Content root path: C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api
+2025-03-26 22:43:13.239 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/ - null null
+2025-03-26 22:43:13.657 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/ - 404 0 null 438.7178ms
+2025-03-26 22:43:13.681 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7048/, Response status code: 404
+2025-03-26 22:43:20.276 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar - null null
+2025-03-26 22:43:20.296 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:43:20.318 -05:00 [INF] Executing RedirectResult, redirecting to scalar/.
+2025-03-26 22:43:20.324 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:43:20.327 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar - 302 0 null 51.2804ms
+2025-03-26 22:43:20.334 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/ - null null
+2025-03-26 22:43:20.349 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:43:20.412 -05:00 [INF] Write content with HTTP Response ContentType of text/html
+2025-03-26 22:43:20.425 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:43:20.428 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/ - 200 null text/html 93.6706ms
+2025-03-26 22:43:20.471 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - null null
+2025-03-26 22:43:20.471 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.js - null null
+2025-03-26 22:43:20.473 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-26 22:43:20.473 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_vs/browserLink - null null
+2025-03-26 22:43:20.479 -05:00 [INF] CORS policy execution successful.
+2025-03-26 22:43:20.481 -05:00 [INF] CORS policy execution successful.
+2025-03-26 22:43:20.496 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 22:43:20.496 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 22:43:20.528 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - 200 16491 application/javascript; charset=utf-8 54.6445ms
+2025-03-26 22:43:20.531 -05:00 [INF] Setting HTTP status code 304.
+2025-03-26 22:43:20.531 -05:00 [INF] Setting HTTP status code 304.
+2025-03-26 22:43:20.538 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 22:43:20.541 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 22:43:20.544 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.js - 304 null null 72.5698ms
+2025-03-26 22:43:20.545 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - 304 null null 73.8346ms
+2025-03-26 22:43:20.575 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_vs/browserLink - 200 null text/javascript; charset=UTF-8 101.228ms
+2025-03-26 22:43:20.863 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/openapi/v1.json - null null
+2025-03-26 22:43:20.871 -05:00 [INF] Executing endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 22:43:21.029 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/favicon.ico - null null
+2025-03-26 22:43:21.037 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/favicon.ico - 404 0 null 7.6619ms
+2025-03-26 22:43:21.046 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7048/favicon.ico, Response status code: 404
+2025-03-26 22:43:21.178 -05:00 [INF] Executed endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 22:43:21.200 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/openapi/v1.json - 200 null application/json;charset=utf-8 337.0691ms
+2025-03-26 22:43:55.709 -05:00 [INF] User profile is available. Using 'C:\Users\ing01fs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-26 22:43:56.708 -05:00 [WRN] The WebRootPath was not found: C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api\wwwroot. Static files may be unavailable.
+2025-03-26 22:43:57.306 -05:00 [INF] Now listening on: https://localhost:7048
+2025-03-26 22:43:57.313 -05:00 [INF] Now listening on: http://localhost:5110
+2025-03-26 22:43:57.440 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-26 22:43:57.443 -05:00 [INF] Hosting environment: Development
+2025-03-26 22:43:57.449 -05:00 [INF] Content root path: C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api
+2025-03-26 22:43:58.658 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/ - null null
+2025-03-26 22:43:59.211 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/ - 404 0 null 571.9483ms
+2025-03-26 22:43:59.242 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7048/, Response status code: 404
+2025-03-26 22:44:25.659 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar - null null
+2025-03-26 22:44:25.686 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:44:25.701 -05:00 [INF] Executing RedirectResult, redirecting to scalar/.
+2025-03-26 22:44:25.703 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:44:25.706 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar - 302 0 null 47.9614ms
+2025-03-26 22:44:25.748 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/ - null null
+2025-03-26 22:44:25.768 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:44:25.828 -05:00 [INF] Write content with HTTP Response ContentType of text/html
+2025-03-26 22:44:25.844 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:44:25.847 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/ - 200 null text/html 98.3621ms
+2025-03-26 22:44:25.898 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - null null
+2025-03-26 22:44:25.900 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-26 22:44:25.899 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.js - null null
+2025-03-26 22:44:25.907 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_vs/browserLink - null null
+2025-03-26 22:44:25.918 -05:00 [INF] CORS policy execution successful.
+2025-03-26 22:44:25.927 -05:00 [INF] CORS policy execution successful.
+2025-03-26 22:44:25.953 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 22:44:25.953 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 22:44:25.955 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - 200 16491 application/javascript; charset=utf-8 55.2705ms
+2025-03-26 22:44:25.964 -05:00 [INF] Setting HTTP status code 304.
+2025-03-26 22:44:25.964 -05:00 [INF] Setting HTTP status code 304.
+2025-03-26 22:44:25.970 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 22:44:25.973 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 22:44:25.977 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - 304 null null 78.905ms
+2025-03-26 22:44:25.977 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.js - 304 null null 78.4414ms
+2025-03-26 22:44:25.999 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_vs/browserLink - 200 null text/javascript; charset=UTF-8 92.5347ms
+2025-03-26 22:44:26.276 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/openapi/v1.json - null null
+2025-03-26 22:44:26.286 -05:00 [INF] Executing endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 22:44:26.410 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/favicon.ico - null null
+2025-03-26 22:44:26.418 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/favicon.ico - 404 0 null 8.0996ms
+2025-03-26 22:44:26.426 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7048/favicon.ico, Response status code: 404
+2025-03-26 22:44:26.527 -05:00 [INF] Executed endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 22:44:26.536 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/openapi/v1.json - 200 null application/json;charset=utf-8 259.6439ms
+2025-03-26 22:44:52.731 -05:00 [INF] User profile is available. Using 'C:\Users\ing01fs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-26 22:44:53.282 -05:00 [WRN] The WebRootPath was not found: C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api\wwwroot. Static files may be unavailable.
+2025-03-26 22:44:53.631 -05:00 [INF] Now listening on: https://localhost:7048
+2025-03-26 22:44:53.636 -05:00 [INF] Now listening on: http://localhost:5110
+2025-03-26 22:44:53.744 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-26 22:44:53.747 -05:00 [INF] Hosting environment: Development
+2025-03-26 22:44:53.750 -05:00 [INF] Content root path: C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api
+2025-03-26 22:44:55.231 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/ - null null
+2025-03-26 22:44:55.880 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/ - 404 0 null 663.9606ms
+2025-03-26 22:44:55.931 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7048/, Response status code: 404
+2025-03-26 22:45:02.345 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar - null null
+2025-03-26 22:45:02.363 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:45:02.382 -05:00 [INF] Executing RedirectResult, redirecting to scalar/.
+2025-03-26 22:45:02.386 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:45:02.388 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar - 302 0 null 43.6524ms
+2025-03-26 22:45:02.395 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/ - null null
+2025-03-26 22:45:02.409 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:45:02.487 -05:00 [INF] Write content with HTTP Response ContentType of text/html
+2025-03-26 22:45:02.502 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:45:02.506 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/ - 200 null text/html 110.9639ms
+2025-03-26 22:45:02.571 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - null null
+2025-03-26 22:45:02.573 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.js - null null
+2025-03-26 22:45:02.573 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-26 22:45:02.579 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_vs/browserLink - null null
+2025-03-26 22:45:02.592 -05:00 [INF] CORS policy execution successful.
+2025-03-26 22:45:02.594 -05:00 [INF] CORS policy execution successful.
+2025-03-26 22:45:02.609 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 22:45:02.611 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 22:45:02.713 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - 200 16491 application/javascript; charset=utf-8 140.0947ms
+2025-03-26 22:45:02.716 -05:00 [INF] Setting HTTP status code 304.
+2025-03-26 22:45:02.716 -05:00 [INF] Setting HTTP status code 304.
+2025-03-26 22:45:02.724 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 22:45:02.726 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 22:45:02.731 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.js - 304 null null 157.1343ms
+2025-03-26 22:45:02.732 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - 304 null null 161.0281ms
+2025-03-26 22:45:02.766 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_vs/browserLink - 200 null text/javascript; charset=UTF-8 187.6375ms
+2025-03-26 22:45:03.049 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/openapi/v1.json - null null
+2025-03-26 22:45:03.060 -05:00 [INF] Executing endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 22:45:03.238 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/favicon.ico - null null
+2025-03-26 22:45:03.248 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/favicon.ico - 404 0 null 10.7862ms
+2025-03-26 22:45:03.260 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7048/favicon.ico, Response status code: 404
+2025-03-26 22:45:03.400 -05:00 [INF] Executed endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 22:45:03.412 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/openapi/v1.json - 200 null application/json;charset=utf-8 363.4601ms
+2025-03-26 22:45:28.012 -05:00 [INF] User profile is available. Using 'C:\Users\ing01fs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-26 22:45:28.282 -05:00 [WRN] The WebRootPath was not found: C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api\wwwroot. Static files may be unavailable.
+2025-03-26 22:45:28.474 -05:00 [INF] Now listening on: https://localhost:7048
+2025-03-26 22:45:28.477 -05:00 [INF] Now listening on: http://localhost:5110
+2025-03-26 22:45:28.519 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-26 22:45:28.522 -05:00 [INF] Hosting environment: Development
+2025-03-26 22:45:28.525 -05:00 [INF] Content root path: C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api
+2025-03-26 22:45:29.847 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/ - null null
+2025-03-26 22:45:30.364 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/ - 404 0 null 530.5422ms
+2025-03-26 22:45:30.416 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7048/, Response status code: 404
+2025-03-26 22:45:35.281 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar - null null
+2025-03-26 22:45:35.306 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:45:35.332 -05:00 [INF] Executing RedirectResult, redirecting to scalar/.
+2025-03-26 22:45:35.337 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:45:35.340 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar - 302 0 null 59.9494ms
+2025-03-26 22:45:35.351 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/ - null null
+2025-03-26 22:45:35.372 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:45:35.483 -05:00 [INF] Write content with HTTP Response ContentType of text/html
+2025-03-26 22:45:35.506 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:45:35.511 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/ - 200 null text/html 159.917ms
+2025-03-26 22:45:35.580 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - null null
+2025-03-26 22:45:35.580 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-26 22:45:35.581 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.js - null null
+2025-03-26 22:45:35.581 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_vs/browserLink - null null
+2025-03-26 22:45:35.596 -05:00 [INF] CORS policy execution successful.
+2025-03-26 22:45:35.608 -05:00 [INF] CORS policy execution successful.
+2025-03-26 22:45:35.718 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 22:45:35.718 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 22:45:35.727 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - 200 16491 application/javascript; charset=utf-8 147.1273ms
+2025-03-26 22:45:35.782 -05:00 [INF] Setting HTTP status code 304.
+2025-03-26 22:45:35.782 -05:00 [INF] Setting HTTP status code 304.
+2025-03-26 22:45:35.789 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 22:45:35.792 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 22:45:35.797 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.js - 304 null null 216.1911ms
+2025-03-26 22:45:35.799 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - 304 null null 219.2669ms
+2025-03-26 22:45:35.851 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_vs/browserLink - 200 null text/javascript; charset=UTF-8 270.4735ms
+2025-03-26 22:45:36.204 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/openapi/v1.json - null null
+2025-03-26 22:45:36.215 -05:00 [INF] Executing endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 22:45:36.402 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/favicon.ico - null null
+2025-03-26 22:45:36.410 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/favicon.ico - 404 0 null 7.7836ms
+2025-03-26 22:45:36.418 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7048/favicon.ico, Response status code: 404
+2025-03-26 22:45:36.529 -05:00 [INF] Executed endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 22:45:36.537 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/openapi/v1.json - 200 null application/json;charset=utf-8 333.7119ms
+2025-03-26 22:46:02.796 -05:00 [INF] User profile is available. Using 'C:\Users\ing01fs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-26 22:46:03.343 -05:00 [WRN] The WebRootPath was not found: C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api\wwwroot. Static files may be unavailable.
+2025-03-26 22:46:03.542 -05:00 [INF] Now listening on: https://localhost:7048
+2025-03-26 22:46:03.546 -05:00 [INF] Now listening on: http://localhost:5110
+2025-03-26 22:46:03.602 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-26 22:46:03.605 -05:00 [INF] Hosting environment: Development
+2025-03-26 22:46:03.607 -05:00 [INF] Content root path: C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api
+2025-03-26 22:46:04.780 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/ - null null
+2025-03-26 22:46:05.297 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/ - 404 0 null 543.901ms
+2025-03-26 22:46:05.318 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7048/, Response status code: 404
+2025-03-26 22:46:06.206 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar - null null
+2025-03-26 22:46:06.224 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:46:06.276 -05:00 [INF] Executing RedirectResult, redirecting to scalar/.
+2025-03-26 22:46:06.282 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:46:06.285 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar - 302 0 null 79.3938ms
+2025-03-26 22:46:06.292 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/ - null null
+2025-03-26 22:46:06.306 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:46:06.345 -05:00 [INF] Write content with HTTP Response ContentType of text/html
+2025-03-26 22:46:06.357 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:46:06.361 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/ - 200 null text/html 68.8972ms
+2025-03-26 22:46:06.412 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - null null
+2025-03-26 22:46:06.412 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-26 22:46:06.412 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.js - null null
+2025-03-26 22:46:06.412 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_vs/browserLink - null null
+2025-03-26 22:46:06.423 -05:00 [INF] CORS policy execution successful.
+2025-03-26 22:46:06.431 -05:00 [INF] CORS policy execution successful.
+2025-03-26 22:46:06.480 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - 200 16491 application/javascript; charset=utf-8 67.7956ms
+2025-03-26 22:46:06.484 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 22:46:06.485 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 22:46:06.507 -05:00 [INF] Setting HTTP status code 304.
+2025-03-26 22:46:06.507 -05:00 [INF] Setting HTTP status code 304.
+2025-03-26 22:46:06.510 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 22:46:06.513 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 22:46:06.517 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - 304 null null 104.7884ms
+2025-03-26 22:46:06.519 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.js - 304 null null 106.8438ms
+2025-03-26 22:46:06.533 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_vs/browserLink - 200 null text/javascript; charset=UTF-8 120.8934ms
+2025-03-26 22:46:06.797 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/openapi/v1.json - null null
+2025-03-26 22:46:06.809 -05:00 [INF] Executing endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 22:46:06.960 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/favicon.ico - null null
+2025-03-26 22:46:06.970 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/favicon.ico - 404 0 null 10.7951ms
+2025-03-26 22:46:06.982 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7048/favicon.ico, Response status code: 404
+2025-03-26 22:46:07.037 -05:00 [INF] Executed endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 22:46:07.044 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/openapi/v1.json - 200 null application/json;charset=utf-8 247.2866ms
+2025-03-26 22:46:27.135 -05:00 [INF] User profile is available. Using 'C:\Users\ing01fs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-26 22:46:27.430 -05:00 [WRN] The WebRootPath was not found: C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api\wwwroot. Static files may be unavailable.
+2025-03-26 22:46:27.609 -05:00 [INF] Now listening on: https://localhost:7048
+2025-03-26 22:46:27.613 -05:00 [INF] Now listening on: http://localhost:5110
+2025-03-26 22:46:27.665 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-26 22:46:27.668 -05:00 [INF] Hosting environment: Development
+2025-03-26 22:46:27.669 -05:00 [INF] Content root path: C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api
+2025-03-26 22:46:28.878 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/ - null null
+2025-03-26 22:46:29.320 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/ - 404 0 null 459.1395ms
+2025-03-26 22:46:29.344 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7048/, Response status code: 404
+2025-03-26 22:46:30.457 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar - null null
+2025-03-26 22:46:30.477 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:46:30.496 -05:00 [INF] Executing RedirectResult, redirecting to scalar/.
+2025-03-26 22:46:30.501 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:46:30.504 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar - 302 0 null 47.2054ms
+2025-03-26 22:46:30.515 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/ - null null
+2025-03-26 22:46:30.531 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:46:30.592 -05:00 [INF] Write content with HTTP Response ContentType of text/html
+2025-03-26 22:46:30.604 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:46:30.608 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/ - 200 null text/html 92.6143ms
+2025-03-26 22:46:30.664 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - null null
+2025-03-26 22:46:30.664 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.js - null null
+2025-03-26 22:46:30.664 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-26 22:46:30.672 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_vs/browserLink - null null
+2025-03-26 22:46:30.681 -05:00 [INF] CORS policy execution successful.
+2025-03-26 22:46:30.683 -05:00 [INF] CORS policy execution successful.
+2025-03-26 22:46:30.697 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 22:46:30.704 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 22:46:30.764 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - 200 16491 application/javascript; charset=utf-8 100.3247ms
+2025-03-26 22:46:30.769 -05:00 [INF] Setting HTTP status code 304.
+2025-03-26 22:46:30.769 -05:00 [INF] Setting HTTP status code 304.
+2025-03-26 22:46:30.777 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 22:46:30.780 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 22:46:30.784 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.js - 304 null null 119.9484ms
+2025-03-26 22:46:30.786 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - 304 null null 121.6939ms
+2025-03-26 22:46:30.811 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_vs/browserLink - 200 null text/javascript; charset=UTF-8 139.1253ms
+2025-03-26 22:46:31.097 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/openapi/v1.json - null null
+2025-03-26 22:46:31.106 -05:00 [INF] Executing endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 22:46:31.255 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/favicon.ico - null null
+2025-03-26 22:46:31.266 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/favicon.ico - 404 0 null 11.0266ms
+2025-03-26 22:46:31.276 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7048/favicon.ico, Response status code: 404
+2025-03-26 22:46:31.319 -05:00 [INF] Executed endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 22:46:31.327 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/openapi/v1.json - 200 null application/json;charset=utf-8 230.171ms
+2025-03-26 22:46:38.419 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/ - null null
+2025-03-26 22:46:38.430 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:46:38.434 -05:00 [INF] Write content with HTTP Response ContentType of text/html
+2025-03-26 22:46:38.436 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:46:38.439 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/ - 200 null text/html 20.232ms
+2025-03-26 22:46:38.478 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-26 22:46:38.478 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - null null
+2025-03-26 22:46:38.478 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.js - null null
+2025-03-26 22:46:38.478 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_vs/browserLink - null null
+2025-03-26 22:46:38.488 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - 200 16491 application/javascript; charset=utf-8 9.8737ms
+2025-03-26 22:46:38.500 -05:00 [INF] CORS policy execution successful.
+2025-03-26 22:46:38.493 -05:00 [INF] CORS policy execution successful.
+2025-03-26 22:46:38.538 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 22:46:38.540 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 22:46:38.542 -05:00 [INF] Setting HTTP status code 304.
+2025-03-26 22:46:38.545 -05:00 [INF] Setting HTTP status code 304.
+2025-03-26 22:46:38.549 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 22:46:38.550 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 22:46:38.552 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.js - 304 null null 74.7088ms
+2025-03-26 22:46:38.556 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - 304 null null 78.1272ms
+2025-03-26 22:46:38.557 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_vs/browserLink - 200 null text/javascript; charset=UTF-8 79.0904ms
+2025-03-26 22:46:38.815 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/openapi/v1.json - null null
+2025-03-26 22:46:38.825 -05:00 [INF] Executing endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 22:46:38.848 -05:00 [INF] Executed endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 22:46:38.855 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/openapi/v1.json - 200 null application/json;charset=utf-8 39.3645ms
+2025-03-26 22:47:22.883 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7048/Sample - application/json 16
+2025-03-26 22:47:22.898 -05:00 [INF] CORS policy execution successful.
+2025-03-26 22:47:22.902 -05:00 [INF] Executing endpoint 'Api.Controllers.SampleController.PostSampleAsync (Api)'
+2025-03-26 22:47:22.969 -05:00 [INF] Route matched with {action = "PostSample", controller = "Sample"}. Executing controller action with signature System.Threading.Tasks.Task`1[Application.DTO.Response.ApiResponse] PostSampleAsync(Application.Commands.SaveSampleCommand) on controller Api.Controllers.SampleController (Api).
+2025-03-26 22:47:23.166 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Application.DTO.Response.ApiResponse`1[[System.Collections.Generic.List`1[[Application.DTO.ValidationError, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-03-26 22:47:23.234 -05:00 [INF] Executed action Api.Controllers.SampleController.PostSampleAsync (Api) in 254.3948ms
+2025-03-26 22:47:23.238 -05:00 [INF] Executed endpoint 'Api.Controllers.SampleController.PostSampleAsync (Api)'
+2025-03-26 22:47:23.242 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7048/Sample - 400 147 application/json; charset=utf-8 359.3641ms
+2025-03-26 22:52:39.833 -05:00 [INF] User profile is available. Using 'C:\Users\ing01fs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-26 22:52:40.038 -05:00 [WRN] The WebRootPath was not found: C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api\wwwroot. Static files may be unavailable.
+2025-03-26 22:52:40.172 -05:00 [INF] Now listening on: https://localhost:7048
+2025-03-26 22:52:40.175 -05:00 [INF] Now listening on: http://localhost:5110
+2025-03-26 22:52:40.211 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-26 22:52:40.213 -05:00 [INF] Hosting environment: Development
+2025-03-26 22:52:40.216 -05:00 [INF] Content root path: C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api
+2025-03-26 22:52:40.931 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/ - null null
+2025-03-26 22:52:41.322 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/ - 404 0 null 396.5975ms
+2025-03-26 22:52:41.346 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7048/, Response status code: 404
+2025-03-26 22:52:44.027 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar - null null
+2025-03-26 22:52:44.047 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:52:44.066 -05:00 [INF] Executing RedirectResult, redirecting to scalar/.
+2025-03-26 22:52:44.070 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:52:44.074 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar - 302 0 null 47.2322ms
+2025-03-26 22:52:44.080 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/ - null null
+2025-03-26 22:52:44.094 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:52:44.139 -05:00 [INF] Write content with HTTP Response ContentType of text/html
+2025-03-26 22:52:44.150 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:52:44.154 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/ - 200 null text/html 73.6916ms
+2025-03-26 22:52:44.198 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - null null
+2025-03-26 22:52:44.198 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-26 22:52:44.198 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.js - null null
+2025-03-26 22:52:44.198 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_vs/browserLink - null null
+2025-03-26 22:52:44.207 -05:00 [INF] CORS policy execution successful.
+2025-03-26 22:52:44.213 -05:00 [INF] CORS policy execution successful.
+2025-03-26 22:52:44.263 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 22:52:44.263 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 22:52:44.265 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - 200 16491 application/javascript; charset=utf-8 67.4984ms
+2025-03-26 22:52:44.280 -05:00 [INF] Setting HTTP status code 304.
+2025-03-26 22:52:44.280 -05:00 [INF] Setting HTTP status code 304.
+2025-03-26 22:52:44.283 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 22:52:44.285 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 22:52:44.289 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.js - 304 null null 91.2814ms
+2025-03-26 22:52:44.290 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - 304 null null 92.358ms
+2025-03-26 22:52:44.317 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_vs/browserLink - 200 null text/javascript; charset=UTF-8 118.3588ms
+2025-03-26 22:52:44.573 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/openapi/v1.json - null null
+2025-03-26 22:52:44.582 -05:00 [INF] Executing endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 22:52:44.738 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/favicon.ico - null null
+2025-03-26 22:52:44.747 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/favicon.ico - 404 0 null 8.7803ms
+2025-03-26 22:52:44.754 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7048/favicon.ico, Response status code: 404
+2025-03-26 22:52:44.849 -05:00 [INF] Executed endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 22:52:44.858 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/openapi/v1.json - 200 null application/json;charset=utf-8 285.2496ms
+2025-03-26 22:53:27.701 -05:00 [INF] User profile is available. Using 'C:\Users\ing01fs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-26 22:53:27.998 -05:00 [WRN] The WebRootPath was not found: C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api\wwwroot. Static files may be unavailable.
+2025-03-26 22:53:28.153 -05:00 [INF] Now listening on: https://localhost:7048
+2025-03-26 22:53:28.156 -05:00 [INF] Now listening on: http://localhost:5110
+2025-03-26 22:53:28.233 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-26 22:53:28.237 -05:00 [INF] Hosting environment: Development
+2025-03-26 22:53:28.239 -05:00 [INF] Content root path: C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api
+2025-03-26 22:53:28.896 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/ - null null
+2025-03-26 22:53:29.303 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/ - 404 0 null 425.2663ms
+2025-03-26 22:53:29.330 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7048/, Response status code: 404
+2025-03-26 22:53:30.703 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar - null null
+2025-03-26 22:53:30.722 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:53:30.772 -05:00 [INF] Executing RedirectResult, redirecting to scalar/.
+2025-03-26 22:53:30.778 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:53:30.782 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar - 302 0 null 79.0028ms
+2025-03-26 22:53:30.790 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/ - null null
+2025-03-26 22:53:30.802 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:53:30.851 -05:00 [INF] Write content with HTTP Response ContentType of text/html
+2025-03-26 22:53:30.863 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/{documentName?}'
+2025-03-26 22:53:30.866 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/ - 200 null text/html 76.494ms
+2025-03-26 22:53:30.915 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - null null
+2025-03-26 22:53:30.916 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-26 22:53:30.916 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/scalar/scalar.js - null null
+2025-03-26 22:53:30.917 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/_vs/browserLink - null null
+2025-03-26 22:53:30.935 -05:00 [INF] CORS policy execution successful.
+2025-03-26 22:53:30.928 -05:00 [INF] CORS policy execution successful.
+2025-03-26 22:53:30.947 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_framework/aspnetcore-browser-refresh.js - 200 16491 application/javascript; charset=utf-8 31.0549ms
+2025-03-26 22:53:30.952 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 22:53:30.952 -05:00 [INF] Executing endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 22:53:30.975 -05:00 [INF] Setting HTTP status code 304.
+2025-03-26 22:53:30.975 -05:00 [INF] Setting HTTP status code 304.
+2025-03-26 22:53:30.977 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.js'
+2025-03-26 22:53:30.979 -05:00 [INF] Executed endpoint 'HTTP: GET /scalar/scalar.aspnetcore.js'
+2025-03-26 22:53:30.982 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.js - 304 null null 66.276ms
+2025-03-26 22:53:30.984 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/scalar/scalar.aspnetcore.js - 304 null null 68.1657ms
+2025-03-26 22:53:31.002 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/_vs/browserLink - 200 null text/javascript; charset=UTF-8 85.0549ms
+2025-03-26 22:53:31.277 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/openapi/v1.json - null null
+2025-03-26 22:53:31.286 -05:00 [INF] Executing endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 22:53:31.463 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/favicon.ico - null null
+2025-03-26 22:53:31.475 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/favicon.ico - 404 0 null 12.1239ms
+2025-03-26 22:53:31.486 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7048/favicon.ico, Response status code: 404
+2025-03-26 22:53:31.548 -05:00 [INF] Executed endpoint 'HTTP: GET /openapi/{documentName}.json'
+2025-03-26 22:53:31.554 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/openapi/v1.json - 200 null application/json;charset=utf-8 276.9386ms
+2025-03-26 22:53:45.352 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7048/Sample - application/json 50
+2025-03-26 22:53:45.358 -05:00 [INF] CORS policy execution successful.
+2025-03-26 22:53:45.360 -05:00 [INF] Executing endpoint 'Api.Controllers.SampleController.PostSampleAsync (Api)'
+2025-03-26 22:53:45.398 -05:00 [INF] Route matched with {action = "PostSample", controller = "Sample"}. Executing controller action with signature System.Threading.Tasks.Task`1[Application.DTO.Response.ApiResponse] PostSampleAsync(Application.Commands.SaveSampleCommand) on controller Api.Controllers.SampleController (Api).
+2025-03-26 22:53:46.140 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2025-03-26 22:53:47.324 -05:00 [INF] Executed DbCommand (93ms) [Parameters=[@p0='descr 1' (Nullable = false) (Size = 4000), @p1='test 1' (Nullable = false) (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Samples] ([Description], [Name])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1);
+2025-03-26 22:53:47.434 -05:00 [INF] Executing ObjectResult, writing value of type 'Application.DTO.Response.ApiResponse'.
+2025-03-26 22:53:47.488 -05:00 [INF] Executed action Api.Controllers.SampleController.PostSampleAsync (Api) in 2080.2824ms
+2025-03-26 22:53:47.493 -05:00 [INF] Executed endpoint 'Api.Controllers.SampleController.PostSampleAsync (Api)'
+2025-03-26 22:53:47.528 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7048/Sample - 200 54 application/json; charset=utf-8 2175.7802ms
+2025-03-26 22:53:54.855 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/Sample - null null
+2025-03-26 22:53:54.861 -05:00 [INF] Executing endpoint 'Api.Controllers.SampleController.GetSampleAsync (Api)'
+2025-03-26 22:53:54.870 -05:00 [INF] Route matched with {action = "GetSample", controller = "Sample"}. Executing controller action with signature System.Threading.Tasks.Task`1[Application.DTO.Response.ApiResponse`1[System.Collections.Generic.IEnumerable`1[Application.DTO.Response.SampleResponse]]] GetSampleAsync() on controller Api.Controllers.SampleController (Api).
+2025-03-26 22:53:55.386 -05:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Description], [s].[Name]
+FROM [Samples] AS [s]
+2025-03-26 22:53:55.426 -05:00 [INF] Executing ObjectResult, writing value of type 'Application.DTO.Response.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Application.DTO.Response.SampleResponse, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-03-26 22:53:55.445 -05:00 [INF] Executed action Api.Controllers.SampleController.GetSampleAsync (Api) in 571.3031ms
+2025-03-26 22:53:55.448 -05:00 [INF] Executed endpoint 'Api.Controllers.SampleController.GetSampleAsync (Api)'
+2025-03-26 22:53:55.451 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/Sample - 200 119 application/json; charset=utf-8 595.7398ms
+2025-03-26 22:54:04.445 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/Sample/2 - null null
+2025-03-26 22:54:04.450 -05:00 [INF] Executing endpoint 'Api.Controllers.SampleController.GetSampleByIdAsync (Api)'
+2025-03-26 22:54:04.457 -05:00 [INF] Route matched with {action = "GetSampleById", controller = "Sample"}. Executing controller action with signature System.Threading.Tasks.Task`1[Application.DTO.Response.ApiResponse`1[Application.DTO.Response.SampleResponse]] GetSampleByIdAsync(Int32) on controller Api.Controllers.SampleController (Api).
+2025-03-26 22:54:04.631 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='2'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Description], [s].[Name]
+FROM [Samples] AS [s]
+WHERE [s].[Id] = @__p_0
+2025-03-26 22:54:11.891 -05:00 [INF] Executed action Api.Controllers.SampleController.GetSampleByIdAsync (Api) in 7430.216ms
+2025-03-26 22:54:11.894 -05:00 [INF] Executed endpoint 'Api.Controllers.SampleController.GetSampleByIdAsync (Api)'
+2025-03-26 22:54:11.897 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+Application.Exceptions.Sample.SampleNotFoundException: No se encontró un Sample con el id 2
+   at Application.Services.SampleService.GetSampleByIdAsync(Int32 id) in C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Application\Services\SampleService.cs:line 32
+   at Application.Queries.GetSampleByIdHandler.Handle(GetSampleByIdQuery request, CancellationToken cancellationToken) in C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Application\Queries\GetSampleByIdHandler.cs:line 12
+   at Api.Controllers.SampleController.GetSampleByIdAsync(Int32 id) in C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api\Controllers\SampleController.cs:line 37
+   at lambda_method85(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-03-26 22:54:11.938 -05:00 [ERR] An error occurred while processing the request
+Application.Exceptions.Sample.SampleNotFoundException: No se encontró un Sample con el id 2
+   at Application.Services.SampleService.GetSampleByIdAsync(Int32 id) in C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Application\Services\SampleService.cs:line 32
+   at Application.Queries.GetSampleByIdHandler.Handle(GetSampleByIdQuery request, CancellationToken cancellationToken) in C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Application\Queries\GetSampleByIdHandler.cs:line 12
+   at Api.Controllers.SampleController.GetSampleByIdAsync(Int32 id) in C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api\Controllers\SampleController.cs:line 37
+   at lambda_method85(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-03-26 22:54:11.952 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/Sample/2 - 404 null application/json 7506.7444ms
+2025-03-26 22:54:37.896 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7048/Sample/2 - null null
+2025-03-26 22:54:37.904 -05:00 [INF] Executing endpoint 'Api.Controllers.SampleController.GetSampleByIdAsync (Api)'
+2025-03-26 22:54:37.908 -05:00 [INF] Route matched with {action = "GetSampleById", controller = "Sample"}. Executing controller action with signature System.Threading.Tasks.Task`1[Application.DTO.Response.ApiResponse`1[Application.DTO.Response.SampleResponse]] GetSampleByIdAsync(Int32) on controller Api.Controllers.SampleController (Api).
+2025-03-26 22:54:37.932 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='2'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Description], [s].[Name]
+FROM [Samples] AS [s]
+WHERE [s].[Id] = @__p_0
+2025-03-26 22:54:44.103 -05:00 [INF] Executed action Api.Controllers.SampleController.GetSampleByIdAsync (Api) in 6187.3269ms
+2025-03-26 22:54:44.106 -05:00 [INF] Executed endpoint 'Api.Controllers.SampleController.GetSampleByIdAsync (Api)'
+2025-03-26 22:54:44.112 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+Application.Exceptions.Sample.SampleNotFoundException: No se encontró un Sample con el id 2
+   at Application.Services.SampleService.GetSampleByIdAsync(Int32 id) in C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Application\Services\SampleService.cs:line 32
+   at Application.Queries.GetSampleByIdHandler.Handle(GetSampleByIdQuery request, CancellationToken cancellationToken) in C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Application\Queries\GetSampleByIdHandler.cs:line 12
+   at Api.Controllers.SampleController.GetSampleByIdAsync(Int32 id) in C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api\Controllers\SampleController.cs:line 37
+   at lambda_method85(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-03-26 22:54:47.940 -05:00 [ERR] An error occurred while processing the request
+Application.Exceptions.Sample.SampleNotFoundException: No se encontró un Sample con el id 2
+   at Application.Services.SampleService.GetSampleByIdAsync(Int32 id) in C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Application\Services\SampleService.cs:line 32
+   at Application.Queries.GetSampleByIdHandler.Handle(GetSampleByIdQuery request, CancellationToken cancellationToken) in C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Application\Queries\GetSampleByIdHandler.cs:line 12
+   at Api.Controllers.SampleController.GetSampleByIdAsync(Int32 id) in C:\Users\ing01fs\Documents\development\DotNetApiTemplate\Api\Controllers\SampleController.cs:line 37
+   at lambda_method85(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-03-26 22:54:47.951 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7048/Sample/2 - 404 null application/json 10059.1716ms

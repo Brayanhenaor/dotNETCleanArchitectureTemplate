@@ -1,0 +1,11 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Brayan Henao Raigosa",
+    "classifications": ["Clean Architecture", "Web API", "DDD", ".NET"],
+    "identity": "CleanArchitecture.Template",
+    "name": "Clean Architecture Template",
+    "shortName": "clean-arch",
+    "sourceName": "DotNetApiTemplate",
+    "preferNameDirectory": true
+  }
+  
