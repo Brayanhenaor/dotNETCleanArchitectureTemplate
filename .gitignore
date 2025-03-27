@@ -398,3 +398,10 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Archivos de logs de Serilog
+logs/
+*.log
+log.txt
+log-*.txt
+log/*.txt
